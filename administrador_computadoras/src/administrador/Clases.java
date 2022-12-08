@@ -3,6 +3,15 @@
  * and open the template in the editor.
  */
 package administrador;
+import javax.swing.JButton;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.GroupLayout;
+import javax.swing.LayoutStyle.ComponentPlacement;
+
+import login.PanelAdmi;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 /**
  *
@@ -68,68 +77,79 @@ public class Clases extends javax.swing.JFrame {
 
         txtID_Clases.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         txtID_Clases.setText("ID_Clases");
+        
+        JButton btnRegresar = new JButton("Regresar");
+        btnRegresar.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		dispose();
+        		PanelAdmi ad = new PanelAdmi();
+        		ad.setVisible(true);
+        	}
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(278, 278, 278)
-                        .addComponent(txtClases))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(45, 45, 45)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(ID_Materias, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtID_Usuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtID_Materias, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtDia)
-                                    .addComponent(txtID_Clases)
-                                    .addComponent(txtAsistencia, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGap(41, 41, 41)
-                                        .addComponent(ID_Clases, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(ID_Laboratorio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(Dia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(Asistencia, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))))))))
-                .addContainerGap(313, Short.MAX_VALUE))
+        	jPanel1Layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(jPanel1Layout.createSequentialGroup()
+        			.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
+        				.addGroup(jPanel1Layout.createSequentialGroup()
+        					.addGap(278)
+        					.addComponent(txtClases))
+        				.addGroup(jPanel1Layout.createSequentialGroup()
+        					.addGap(45)
+        					.addGroup(jPanel1Layout.createParallelGroup(Alignment.TRAILING)
+        						.addComponent(ID_Materias, GroupLayout.PREFERRED_SIZE, 148, GroupLayout.PREFERRED_SIZE)
+        						.addGroup(jPanel1Layout.createSequentialGroup()
+        							.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
+        								.addComponent(txtID_Materias, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE)
+        								.addComponent(txtDia)
+        								.addComponent(txtID_Clases)
+        								.addComponent(txtAsistencia, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
+        								.addComponent(txtID_Usuarios, GroupLayout.PREFERRED_SIZE, 112, GroupLayout.PREFERRED_SIZE))
+        							.addGap(41)
+        							.addGroup(jPanel1Layout.createParallelGroup(Alignment.TRAILING)
+        								.addComponent(ID_Clases, GroupLayout.PREFERRED_SIZE, 148, GroupLayout.PREFERRED_SIZE)
+        								.addComponent(ID_Laboratorio, GroupLayout.PREFERRED_SIZE, 148, GroupLayout.PREFERRED_SIZE)
+        								.addComponent(Dia, GroupLayout.PREFERRED_SIZE, 148, GroupLayout.PREFERRED_SIZE)
+        								.addComponent(Asistencia, GroupLayout.PREFERRED_SIZE, 148, GroupLayout.PREFERRED_SIZE)))))
+        				.addGroup(jPanel1Layout.createSequentialGroup()
+        					.addGap(19)
+        					.addComponent(btnRegresar)))
+        			.addContainerGap(313, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(48, 48, 48)
-                .addComponent(txtClases, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtID_Clases, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ID_Clases, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtID_Materias, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ID_Materias, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(31, 31, 31)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtID_Usuarios, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ID_Laboratorio, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(txtDia)
-                        .addGap(0, 12, Short.MAX_VALUE))
-                    .addComponent(Dia))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(txtAsistencia)
-                    .addComponent(Asistencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(225, 225, 225))
+        	jPanel1Layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(jPanel1Layout.createSequentialGroup()
+        			.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
+        				.addGroup(jPanel1Layout.createSequentialGroup()
+        					.addGap(48)
+        					.addComponent(txtClases, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE))
+        				.addGroup(jPanel1Layout.createSequentialGroup()
+        					.addContainerGap()
+        					.addComponent(btnRegresar, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)))
+        			.addPreferredGap(ComponentPlacement.RELATED)
+        			.addGroup(jPanel1Layout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(txtID_Clases, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
+        				.addComponent(ID_Clases, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE))
+        			.addGap(18)
+        			.addGroup(jPanel1Layout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(txtID_Materias, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
+        				.addComponent(ID_Materias, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE))
+        			.addGap(31)
+        			.addGroup(jPanel1Layout.createParallelGroup(Alignment.BASELINE)
+        				.addComponent(txtID_Usuarios, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
+        				.addComponent(ID_Laboratorio, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
+        			.addGap(18)
+        			.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
+        				.addComponent(txtDia)
+        				.addComponent(Dia, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        			.addGap(18)
+        			.addGroup(jPanel1Layout.createParallelGroup(Alignment.TRAILING)
+        				.addComponent(txtAsistencia)
+        				.addComponent(Asistencia, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        			.addContainerGap(225, Short.MAX_VALUE))
         );
+        jPanel1.setLayout(jPanel1Layout);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -216,5 +236,4 @@ public class Clases extends javax.swing.JFrame {
     private javax.swing.JLabel txtID_Clases;
     private javax.swing.JLabel txtID_Materias;
     private javax.swing.JLabel txtID_Usuarios;
-    // End of variables declaration//GEN-END:variables
 }

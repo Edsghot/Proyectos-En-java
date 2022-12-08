@@ -12,6 +12,8 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import javax.swing.JLabel;
 
+import baseDatos.Conexion;
+
 /**
  *
  * @author fabian
@@ -26,8 +28,11 @@ public class LAB_LDS extends javax.swing.JFrame {
     /**
      * Creates new form nuevolaboratorio
      */
+    
+    
     public LAB_LDS() {
-        this.cn = img.CConexion_BD.getConection();
+       
+		this.cn = Conexion.conectar();
         initComponents();
         Consultas_EquiposPC();
     }
