@@ -17,6 +17,7 @@ import java.awt.event.ActionListener;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.awt.event.ActionEvent;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -64,12 +65,15 @@ public class login extends javax.swing.JFrame {
         
         JLabel lblNewLabel = new JLabel("Usuario");
         lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 19));
+        
+        lblNewLabel_1 = new JLabel("");
+        lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\erick\\eclipse-workspace\\administrador_computadoras\\src\\img\\llogin.png"));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1Layout.setHorizontalGroup(
         	jPanel1Layout.createParallelGroup(Alignment.LEADING)
-        		.addGroup(jPanel1Layout.createSequentialGroup()
-        			.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        			.addGroup(jPanel1Layout.createParallelGroup(Alignment.TRAILING)
         				.addGroup(jPanel1Layout.createSequentialGroup()
         					.addGap(12)
         					.addComponent(jLabel1, GroupLayout.PREFERRED_SIZE, 102, GroupLayout.PREFERRED_SIZE)
@@ -80,17 +84,23 @@ public class login extends javax.swing.JFrame {
         					.addComponent(jButton1)
         					.addGap(62)
         					.addComponent(jButton2))
-        				.addGroup(Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        				.addGroup(jPanel1Layout.createSequentialGroup()
         					.addContainerGap()
         					.addComponent(lblNewLabel)
         					.addPreferredGap(ComponentPlacement.UNRELATED)
         					.addComponent(jTextField1, GroupLayout.PREFERRED_SIZE, 167, GroupLayout.PREFERRED_SIZE)))
         			.addGap(111))
+        		.addGroup(jPanel1Layout.createSequentialGroup()
+        			.addGap(150)
+        			.addComponent(lblNewLabel_1, GroupLayout.PREFERRED_SIZE, 85, GroupLayout.PREFERRED_SIZE)
+        			.addContainerGap(155, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
         	jPanel1Layout.createParallelGroup(Alignment.TRAILING)
         		.addGroup(jPanel1Layout.createSequentialGroup()
-        			.addContainerGap(128, Short.MAX_VALUE)
+        			.addGap(24)
+        			.addComponent(lblNewLabel_1, GroupLayout.DEFAULT_SIZE, 93, Short.MAX_VALUE)
+        			.addPreferredGap(ComponentPlacement.UNRELATED)
         			.addGroup(jPanel1Layout.createParallelGroup(Alignment.BASELINE)
         				.addComponent(lblNewLabel)
         				.addComponent(jTextField1, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE))
@@ -107,15 +117,20 @@ public class login extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        	layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(Alignment.TRAILING, layout.createSequentialGroup()
+        			.addContainerGap()
+        			.addComponent(jPanel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        			.addContainerGap())
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        	layout.createParallelGroup(Alignment.LEADING)
+        		.addGroup(Alignment.TRAILING, layout.createSequentialGroup()
+        			.addContainerGap()
+        			.addComponent(jPanel1, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
+        getContentPane().setLayout(layout);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -247,5 +262,6 @@ public class login extends javax.swing.JFrame {
     Connection cn = null;
 	Statement stm = null;
 	ResultSet rs = null;
+	private JLabel lblNewLabel_1;
 }
 

@@ -12,6 +12,11 @@ import login.PanelAdmi;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
+import baseDatos.Conexion;
 
 /**
  *
@@ -35,22 +40,22 @@ public class Clases extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        txtLab = new javax.swing.JPanel();
         txtClases = new javax.swing.JLabel();
         txtID_Materias = new javax.swing.JLabel();
-        ID_Materias = new javax.swing.JTextField();
+        txtIdMateria = new javax.swing.JTextField();
         txtID_Usuarios = new javax.swing.JLabel();
-        txtDia = new javax.swing.JLabel();
-        txtAsistencia = new javax.swing.JLabel();
-        ID_Laboratorio = new javax.swing.JTextField();
-        Dia = new javax.swing.JTextField();
-        Asistencia = new javax.swing.JTextField();
+        doa = new javax.swing.JLabel();
+        as = new javax.swing.JLabel();
+        txtIdLab = new javax.swing.JTextField();
+        txtDia = new javax.swing.JTextField();
+        txtAsistencia = new javax.swing.JTextField();
         txtID_Clases = new javax.swing.JLabel();
-        ID_Clases = new javax.swing.JTextField();
+        txtId = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
+        txtLab.setBackground(new java.awt.Color(153, 153, 255));
 
         txtClases.setFont(new java.awt.Font("Arial Black", 0, 18)); // NOI18N
         txtClases.setText("Clases");
@@ -61,19 +66,19 @@ public class Clases extends javax.swing.JFrame {
         txtID_Usuarios.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         txtID_Usuarios.setText("ID_Laboratorio");
 
-        txtDia.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        txtDia.setText("Dia");
+        doa.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        doa.setText("Dia");
 
-        txtAsistencia.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
-        txtAsistencia.setText("Asistencia");
+        as.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        as.setText("Asistencia");
 
-        Dia.addActionListener(new java.awt.event.ActionListener() {
+        txtDia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 DiaActionPerformed(evt);
             }
         });
 
-        Asistencia.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
+        txtAsistencia.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
 
         txtID_Clases.setFont(new java.awt.Font("Arial Black", 0, 14)); // NOI18N
         txtID_Clases.setText("ID_Clases");
@@ -86,83 +91,111 @@ public class Clases extends javax.swing.JFrame {
         		ad.setVisible(true);
         	}
         });
+        
+        scrollPane = new JScrollPane();
+        
+        JButton btnNewButton = new JButton("Agregar");
+        btnNewButton.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		Conexion cn = new Conexion();
+        		cn.agregarClases(txtId.getText(),txtIdMateria.getText(),txtIdLab.getText(),txtDia.getText(),txtAsistencia.getText());
+				model = cn.mostrarClases();
+				table.setModel(model);
+        	}
+        });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1Layout.setHorizontalGroup(
-        	jPanel1Layout.createParallelGroup(Alignment.LEADING)
-        		.addGroup(jPanel1Layout.createSequentialGroup()
-        			.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
-        				.addGroup(jPanel1Layout.createSequentialGroup()
-        					.addGap(278)
-        					.addComponent(txtClases))
-        				.addGroup(jPanel1Layout.createSequentialGroup()
-        					.addGap(45)
-        					.addGroup(jPanel1Layout.createParallelGroup(Alignment.TRAILING)
-        						.addComponent(ID_Materias, GroupLayout.PREFERRED_SIZE, 148, GroupLayout.PREFERRED_SIZE)
-        						.addGroup(jPanel1Layout.createSequentialGroup()
-        							.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
-        								.addComponent(txtID_Materias, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE)
-        								.addComponent(txtDia)
-        								.addComponent(txtID_Clases)
-        								.addComponent(txtAsistencia, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
-        								.addComponent(txtID_Usuarios, GroupLayout.PREFERRED_SIZE, 112, GroupLayout.PREFERRED_SIZE))
-        							.addGap(41)
-        							.addGroup(jPanel1Layout.createParallelGroup(Alignment.TRAILING)
-        								.addComponent(ID_Clases, GroupLayout.PREFERRED_SIZE, 148, GroupLayout.PREFERRED_SIZE)
-        								.addComponent(ID_Laboratorio, GroupLayout.PREFERRED_SIZE, 148, GroupLayout.PREFERRED_SIZE)
-        								.addComponent(Dia, GroupLayout.PREFERRED_SIZE, 148, GroupLayout.PREFERRED_SIZE)
-        								.addComponent(Asistencia, GroupLayout.PREFERRED_SIZE, 148, GroupLayout.PREFERRED_SIZE)))))
-        				.addGroup(jPanel1Layout.createSequentialGroup()
-        					.addGap(19)
-        					.addComponent(btnRegresar)))
-        			.addContainerGap(313, Short.MAX_VALUE))
+        javax.swing.GroupLayout gl_txtLab = new javax.swing.GroupLayout(txtLab);
+        gl_txtLab.setHorizontalGroup(
+        	gl_txtLab.createParallelGroup(Alignment.LEADING)
+        		.addGroup(gl_txtLab.createSequentialGroup()
+        			.addGroup(gl_txtLab.createParallelGroup(Alignment.LEADING)
+        				.addGroup(gl_txtLab.createSequentialGroup()
+        					.addGap(68)
+        					.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 394, GroupLayout.PREFERRED_SIZE))
+        				.addGroup(gl_txtLab.createSequentialGroup()
+        					.addGroup(gl_txtLab.createParallelGroup(Alignment.TRAILING, false)
+        						.addGroup(gl_txtLab.createSequentialGroup()
+        							.addGap(19)
+        							.addComponent(btnRegresar)
+        							.addPreferredGap(ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        							.addComponent(txtClases))
+        						.addGroup(Alignment.LEADING, gl_txtLab.createSequentialGroup()
+        							.addGap(45)
+        							.addGroup(gl_txtLab.createParallelGroup(Alignment.TRAILING)
+        								.addComponent(txtIdMateria, GroupLayout.PREFERRED_SIZE, 148, GroupLayout.PREFERRED_SIZE)
+        								.addGroup(gl_txtLab.createSequentialGroup()
+        									.addGroup(gl_txtLab.createParallelGroup(Alignment.LEADING)
+        										.addComponent(txtID_Materias, GroupLayout.PREFERRED_SIZE, 120, GroupLayout.PREFERRED_SIZE)
+        										.addComponent(doa)
+        										.addComponent(txtID_Clases)
+        										.addComponent(as, GroupLayout.PREFERRED_SIZE, 97, GroupLayout.PREFERRED_SIZE)
+        										.addComponent(txtID_Usuarios, GroupLayout.PREFERRED_SIZE, 112, GroupLayout.PREFERRED_SIZE))
+        									.addGap(41)
+        									.addGroup(gl_txtLab.createParallelGroup(Alignment.TRAILING)
+        										.addComponent(txtId, GroupLayout.PREFERRED_SIZE, 148, GroupLayout.PREFERRED_SIZE)
+        										.addComponent(txtIdLab, GroupLayout.PREFERRED_SIZE, 148, GroupLayout.PREFERRED_SIZE)
+        										.addComponent(txtDia, GroupLayout.PREFERRED_SIZE, 148, GroupLayout.PREFERRED_SIZE)
+        										.addComponent(txtAsistencia, GroupLayout.PREFERRED_SIZE, 148, GroupLayout.PREFERRED_SIZE))))))
+        					.addGap(42)
+        					.addComponent(btnNewButton)))
+        			.addContainerGap(182, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-        	jPanel1Layout.createParallelGroup(Alignment.LEADING)
-        		.addGroup(jPanel1Layout.createSequentialGroup()
-        			.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
-        				.addGroup(jPanel1Layout.createSequentialGroup()
-        					.addGap(48)
-        					.addComponent(txtClases, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE))
-        				.addGroup(jPanel1Layout.createSequentialGroup()
+        gl_txtLab.setVerticalGroup(
+        	gl_txtLab.createParallelGroup(Alignment.LEADING)
+        		.addGroup(gl_txtLab.createSequentialGroup()
+        			.addGroup(gl_txtLab.createParallelGroup(Alignment.LEADING)
+        				.addGroup(gl_txtLab.createSequentialGroup()
         					.addContainerGap()
-        					.addComponent(btnRegresar, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE)))
-        			.addPreferredGap(ComponentPlacement.RELATED)
-        			.addGroup(jPanel1Layout.createParallelGroup(Alignment.BASELINE)
+        					.addComponent(btnRegresar, GroupLayout.PREFERRED_SIZE, 37, GroupLayout.PREFERRED_SIZE))
+        				.addGroup(gl_txtLab.createSequentialGroup()
+        					.addGap(27)
+        					.addComponent(txtClases, GroupLayout.PREFERRED_SIZE, 33, GroupLayout.PREFERRED_SIZE)))
+        			.addGap(27)
+        			.addGroup(gl_txtLab.createParallelGroup(Alignment.BASELINE)
         				.addComponent(txtID_Clases, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
-        				.addComponent(ID_Clases, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE))
+        				.addComponent(txtId, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
+        				.addComponent(btnNewButton))
         			.addGap(18)
-        			.addGroup(jPanel1Layout.createParallelGroup(Alignment.BASELINE)
+        			.addGroup(gl_txtLab.createParallelGroup(Alignment.BASELINE)
         				.addComponent(txtID_Materias, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE)
-        				.addComponent(ID_Materias, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE))
+        				.addComponent(txtIdMateria, GroupLayout.PREFERRED_SIZE, 32, GroupLayout.PREFERRED_SIZE))
         			.addGap(31)
-        			.addGroup(jPanel1Layout.createParallelGroup(Alignment.BASELINE)
+        			.addGroup(gl_txtLab.createParallelGroup(Alignment.BASELINE)
         				.addComponent(txtID_Usuarios, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE)
-        				.addComponent(ID_Laboratorio, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
+        				.addComponent(txtIdLab, GroupLayout.PREFERRED_SIZE, 30, GroupLayout.PREFERRED_SIZE))
         			.addGap(18)
-        			.addGroup(jPanel1Layout.createParallelGroup(Alignment.LEADING)
-        				.addComponent(txtDia)
-        				.addComponent(Dia, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        			.addGroup(gl_txtLab.createParallelGroup(Alignment.LEADING)
+        				.addComponent(doa)
+        				.addComponent(txtDia, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
         			.addGap(18)
-        			.addGroup(jPanel1Layout.createParallelGroup(Alignment.TRAILING)
-        				.addComponent(txtAsistencia)
-        				.addComponent(Asistencia, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-        			.addContainerGap(225, Short.MAX_VALUE))
+        			.addGroup(gl_txtLab.createParallelGroup(Alignment.TRAILING)
+        				.addComponent(as)
+        				.addComponent(txtAsistencia, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+        			.addPreferredGap(ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+        			.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 137, GroupLayout.PREFERRED_SIZE)
+        			.addGap(60))
         );
-        jPanel1.setLayout(jPanel1Layout);
+        
+        model = new DefaultTableModel();
+		table = new JTable();
+		Conexion cn = new Conexion();
+		model = cn.mostrarClases();
+		table.setModel(model);
+        scrollPane.setViewportView(table);
+        txtLab.setLayout(gl_txtLab);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtLab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtLab, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
 
@@ -224,16 +257,19 @@ public class Clases extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Asistencia;
-    private javax.swing.JTextField Dia;
-    private javax.swing.JTextField ID_Clases;
-    private javax.swing.JTextField ID_Laboratorio;
-    private javax.swing.JTextField ID_Materias;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JLabel txtAsistencia;
+    private javax.swing.JTextField txtAsistencia;
+    private javax.swing.JTextField txtDia;
+    private javax.swing.JTextField txtId;
+    private javax.swing.JTextField txtIdLab;
+    private javax.swing.JTextField txtIdMateria;
+    private javax.swing.JPanel txtLab;
+    private javax.swing.JLabel as;
     private javax.swing.JLabel txtClases;
-    private javax.swing.JLabel txtDia;
+    private javax.swing.JLabel doa;
     private javax.swing.JLabel txtID_Clases;
     private javax.swing.JLabel txtID_Materias;
     private javax.swing.JLabel txtID_Usuarios;
+    private JScrollPane scrollPane;
+    private JTable table;
+    private DefaultTableModel model;
 }
